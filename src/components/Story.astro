@@ -1,0 +1,23 @@
+---
+type Props = {
+  title: string;
+  src: string;
+};
+---
+<script>
+  const iframe = document.querySelector('iframe');
+  const btn = document.querySelector('button');
+
+  btn.addEventListener('click', (e) => {
+    iframe.requestFullscreen();
+  });
+</script>
+<div>
+  <p>
+    This is a story of {Astro.props.title}:
+  </p>
+
+  <iframe title={Astro.props.title} src={Astro.props.src} allow="fullscreen"> <slot /></iframe>
+
+  <button>Fullscreen</button>
+</div>

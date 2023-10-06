@@ -1,0 +1,57 @@
+<div class="wrapper">
+  <div class="big">Words shown in a wide context</div>
+  <div class="small">Words shown in small context</div>
+
+</div>
+
+<script is:inline>
+const btn = document.querySelector("button");
+const big = document.querySelector(".big");
+const small = document.querySelector(".small");
+
+window.onresize = (e) => {
+  console.log(e);
+};
+</script>
+
+<style lang="scss">
+  body {
+    margin: 20px;
+    font-family: system-ui;
+    font-size: 24px;
+  }
+
+  .wrapper {
+    max-width: 768px;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    min-height: 100vh;
+  }
+
+  button {
+    margin-inline: auto;
+  }
+
+  .small {
+    display: block;
+
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .big {
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+      display: block;
+    }
+  }
+</style>
